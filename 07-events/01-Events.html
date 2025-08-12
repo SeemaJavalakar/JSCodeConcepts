@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events 1</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+   <h2>HD Images</h2>
+   <div>
+    <ul id="images">
+      <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://gratisography.com/wp-content/uploads/2025/04/gratisograph-mars-robot-800x525.jpg" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://gratisography.com/wp-content/uploads/2025/04/gratisography-cool-car-cat-800x525.jpg" alt=""></li>
+            <li><img width="200px" id="river" src="https://gratisography.com/wp-content/uploads/2018/05/gratisography-225H-free-stock-photo-800x525.jpg" alt=""></li>
+            <li><img width="200px" id="owl" src="https://image.shutterstock.com/image-photo/funny-burrowing-owl-athene-cunicularia-260nw-1170921268.jpg" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://image.shutterstock.com/image-photo/little-boy-full-faith-sits-260nw-2496419307.jpg" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </ul>
+   </div>
+
+   <script>
+
+      // document.getElementById('owl').onclick = function(e){
+      //   console.log(e)
+      // };
+
+      //Event propogation is the concept which is also called bubbling, where the event first hit in child element and then propagate to parent. The second parameter in function call. This is false by default. If it is true. The propogation is from top to bottom. If you do not want the even element bubbling you can call stopPropogation()
+      // document.getElementById('owl').addEventListener('click',function(e){
+      //   console.log(e)
+      //   console.log(`clicked inside img`)
+      //     e.stopPropagation();
+      // },false);
+
+      // document.getElementById('images').addEventListener('click',function(e){
+      //   console.log(`clicked inside ul`);
+      
+      // },false);
+
+      // document.getElementById('google').addEventListener('click',function(e){
+      //    e.preventDefault();
+      //    console.log(`google clicked`);
+         
+      // },false)
+
+      //const images = document.querySelectorAll(img)
+      document.querySelector('#images').addEventListener('click',function(e){
+         let removeNode = e.target.parentNode;
+
+         //This code will also remove entire ul
+         //removeNode.remove()
+         //removeNode.parentNode.removeChild(removeNode)
+         if(e.target.tagName == 'IMG'){
+          console.log(e.target.id);
+          
+          removeNode.remove()
+         }
+      },false)
+   </script>
+</body>
+</html>
